@@ -1,6 +1,6 @@
 <div class="left-side-bar">
 	<div class="brand-logo">
-		<a href="index.html">
+		<a href="{{Route('admin.index')}}">
 			<img src="{{asset('admin/vendors/images/deskapp-logo.svg')}}" alt="" class="dark-logo">
 			<img src="{{asset('admin/vendors/images/deskapp-logo-white.svg')}}" alt="" class="light-logo">
 		</a>
@@ -22,7 +22,7 @@
 					</a>
 					<ul class="submenu">
 						<li><a href="{{Route('admin.about')}}">About</a></li>
-						<li><a href="{{url('admin.index')}}">Education</a></li>
+						<li><a href="{{Route('admin.education')}}">Education</a></li>
 						<li><a href="{{url('admin.index')}}">Experience</a></li>
 						<li><a href="{{url('admin.index')}}">Tags</a></li>
 						<li><a href="{{url('admin.index')}}">Portfolio</a></li>

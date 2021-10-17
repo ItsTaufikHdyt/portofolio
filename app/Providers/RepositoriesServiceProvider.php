@@ -5,6 +5,11 @@ namespace App\Providers;
 
 use App\Repositories\Admin\About\AboutRepository;
 use App\Repositories\Admin\Core\About\AboutRepositoryInterface;
+
+use App\Repositories\Admin\Education\EducationRepository;
+use App\Repositories\Admin\Core\Education\EducationRepositoryInterface;
+
+
 use Illuminate\Support\ServiceProvider;
 
 class RepositoriesServiceProvider extends ServiceProvider
@@ -29,6 +34,9 @@ class RepositoriesServiceProvider extends ServiceProvider
         $this->app->bind(
             AboutRepositoryInterface::class,
             AboutRepository::class,
+            EducationRepositoryInterface::class,
+            EducationRepository::class,
+
 
         );
     }

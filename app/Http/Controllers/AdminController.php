@@ -6,19 +6,24 @@ use App\Repositories\Admin\About\AboutRepository;
 use App\Http\Requests\Admin\About\storeAboutRequest;
 use App\Models\about;
 
+use App\Repositories\Admin\Education\EducationRepository;
+use App\Http\Requests\Admin\Education\storeEducationRequest;
+use App\Models\education;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
 class AdminController extends Controller
 {
-    protected $aboutRepository;
+    protected $aboutRepository, $educationRepository;
 
     public function __construct(
-        AboutRepository $aboutRepository
+        AboutRepository $aboutRepository,
+        EducationRepository $educationRepository
     ) {
         $this->middleware('auth');
         $this->aboutRepository = $aboutRepository;
+        $this->educationRepository = $educationRepository;
     }
 
     public function index()
@@ -26,7 +31,7 @@ class AdminController extends Controller
         return view('admin.index');
     }
 
-    //-----------------------About-------------------
+    //================================ABOUT===========================
     public function about()
     {
         $about = About::all();
@@ -64,6 +69,46 @@ class AdminController extends Controller
         }catch(Throwable $e){
             Alert::error('Error', $e);
             return redirect()->route('admin.about');
+        }
+    }
+    //================================EDUCATION===========================
+    public function education()
+    {
+        $education = education::all();
+        return view('admin.education.index',compact('education'));
+    }
+
+    public function storeEducation(storeEducationRequest $request)
+    {
+        try{
+            $about = $this->educationRepository->storeEducation($request);
+            Alert::success('Store Education', 'Success');
+            return redirect()->route('admin.education',compact('about'));
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.education');
+        }
+    }
+    public function updateEducation(storeEducationRequest $request,$id)
+    {
+        try{
+            $about = $this->educationRepository->updateEducation($request,$id);
+            Alert::success('Update Education', 'Success');
+            return redirect()->route('admin.education',compact('about'));
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.education');
+        }
+    }
+    public function destroyEducation($id)
+    {
+        try{
+            $about = $this->educationRepository->destroyEducation($id);
+            Alert::success('Destroy Education', 'Success');
+            return redirect()->route('admin.education');
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.education');
         }
     }
 }

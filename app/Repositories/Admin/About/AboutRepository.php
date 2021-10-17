@@ -43,14 +43,11 @@ class AboutRepository implements AboutRepositoryInterface
             'email' => $request->email,
             'freelance' => $request->freelance,
         ]);
-        session()->flash('message', 'User Berhasil di Update');
     }
 
     public function destroyAbout($id)
     {
         $about = about::find($id);
         $about->delete();
-        //flash message
-        session()->flash('message', 'Data Berhasil Dihapus.');
     }
 }
