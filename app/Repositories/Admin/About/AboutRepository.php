@@ -4,6 +4,7 @@ namespace App\Repositories\Admin\About;
 
 use App\Repositories\Admin\Core\About\AboutRepositoryInterface;
 use Illuminate\Http\Request;
+use App\Models\about;
 
 class AboutRepository implements AboutRepositoryInterface
 {
@@ -17,22 +18,13 @@ class AboutRepository implements AboutRepositoryInterface
 
     public function storeAbout($request)
     {
-        $request->validate([
-            'desc' => 'required',
-            'website' => 'required',
-            'phone' => 'required',
-            'city' => 'required',
-            'age' => 'required',
-            'email' => 'required',
-            'freelance' => 'required'
-        ]);
-
-        $about = About::create([
+        $age = date('Y') - 2001;
+        $about = about::create([
             'desc' => $request->desc,
             'website' => $request->website,
             'phone' => $request->phone,
             'city' => $request->city,
-            'age' => $request->age,
+            'age' => $age,
             'email' => $request->email,
             'freelance' => $request->freelance,
         ]);
@@ -40,24 +32,14 @@ class AboutRepository implements AboutRepositoryInterface
 
     public function updateAbout($request, $id)
     {
-        $request->validate([
-            'desc' => 'required',
-            'website' => 'required',
-            'phone' => 'required',
-            'city' => 'required',
-            'age' => 'required',
-            'email' => 'required',
-            'freelance' => 'required'
-        ]);
-
-
+        $age = date('Y') - 2001;
         $about = about::find($id);
         $about->update([
             'desc' => $request->desc,
             'website' => $request->website,
             'phone' => $request->phone,
             'city' => $request->city,
-            'age' => $request->age,
+            'age' => $age,
             'email' => $request->email,
             'freelance' => $request->freelance,
         ]);

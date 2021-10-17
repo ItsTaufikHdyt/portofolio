@@ -9,6 +9,7 @@
     @include('admin::layouts.partials.mainheader')
     @include('admin::layouts.partials.rightsidebar')
     @include('admin::layouts.partials.leftsidebar')
+    @include('sweetalert::alert')
     <div class="main-container">
         <div class="pd-ltr-20 xs-pd-20-10">
             <div class="min-height-200px">
@@ -16,7 +17,7 @@
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
                             <div class="title">
-                                <h4>Title</h4>
+                                <h4>@yield('title-content')</h4>
                             </div>
                             @include('admin::layouts.partials.breadcrumb')
                         </div>

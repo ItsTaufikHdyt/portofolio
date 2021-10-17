@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('admin.index');
 });
 
-// Auth::routes();
+Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth'], "prefix" => "admin/"], function () {
+    Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
+    Route::get('/about', [App\Http\Controllers\AdminController::class, 'about'])->name('admin.about');
+    Route::post('/storeAbout', [App\Http\Controllers\AdminController::class, 'storeAbout'])->name('admin.storeAbout');
+    Route::put('/updateAbout/{id}', [App\Http\Controllers\AdminController::class, 'updateAbout'])->name('admin.updateAbout');
+    Route::delete('/destroyAbout/{id}', [App\Http\Controllers\AdminController::class, 'destroyAbout'])->name('admin.destroyAbout');
+});
