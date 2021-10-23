@@ -14,23 +14,30 @@ use App\Repositories\Admin\Experience\ExperienceRepository;
 use App\Http\Requests\Admin\Experience\storeExperienceRequest;
 use App\Models\experience;
 
+use App\Repositories\Admin\Tags\TagsRepository;
+use App\Http\Requests\Admin\Tags\storeTagsRequest;
+use App\Models\tags;
+
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
 class AdminController extends Controller
 {
-    protected $aboutRepository, $educationRepository, $experienceRepository;
+    protected $aboutRepository, $educationRepository, 
+    $experienceRepository, $tagsRepository;
 
     public function __construct(
         AboutRepository $aboutRepository,
         EducationRepository $educationRepository,
-        ExperienceRepository $experienceRepository
+        ExperienceRepository $experienceRepository,
+        TagsRepository $tagsRepository
     ) {
         $this->middleware('auth');
         $this->aboutRepository = $aboutRepository;
         $this->educationRepository = $educationRepository;
         $this->experienceRepository = $experienceRepository;
+        $this->tagsRepository = $tagsRepository;
     }
 
     public function index()
@@ -157,6 +164,46 @@ class AdminController extends Controller
         }catch(Throwable $e){
             Alert::error('Error', $e);
             return redirect()->route('admin.experience');
+        }
+    }
+    //================================TAGS===========================
+    public function tags()
+    {
+        $tags = tags::paginate(5);
+        return view('admin.tags.index',compact('tags'));
+    }
+
+    public function storeTags(storeTagsRequest $request)
+    {
+        try{
+            $about = $this->tagsRepository->storeTags($request);
+            Alert::success('Store Tags', 'Success');
+            return redirect()->route('admin.tags',compact('about'));
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.tags');
+        }
+    }
+    public function updateTags(storeTagsRequest $request,$id)
+    {
+        try{
+            $about = $this->tagsRepository->updateTags($request,$id);
+            Alert::success('Update Tags', 'Success');
+            return redirect()->route('admin.tags',compact('about'));
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.tags');
+        }
+    }
+    public function destroyTags($id)
+    {
+        try{
+            $about = $this->tagsRepository->destroyTags($id);
+            Alert::success('Destroy Tags', 'Success');
+            return redirect()->route('admin.tags');
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.tags');
         }
     }
 }

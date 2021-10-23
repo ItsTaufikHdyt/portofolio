@@ -31,9 +31,14 @@ Route::group(['middleware' => ['auth'], "prefix" => "admin/"], function () {
     Route::post('/storeEducation', [App\Http\Controllers\AdminController::class, 'storeEducation'])->name('admin.storeEducation');
     Route::put('/updateEducation/{id}', [App\Http\Controllers\AdminController::class, 'updateEducation'])->name('admin.updateEducation');
     Route::delete('/destroyEducation/{id}', [App\Http\Controllers\AdminController::class, 'destroyEducation'])->name('admin.destroyEducation');
-     //===================================Experience=======================================
-     Route::get('/experience', [App\Http\Controllers\AdminController::class, 'experience'])->name('admin.experience');
-     Route::post('/storeExperience', [App\Http\Controllers\AdminController::class, 'storeExperience'])->name('admin.storeExperience');
-     Route::put('/updateExperience/{id}', [App\Http\Controllers\AdminController::class, 'updateExperience'])->name('admin.updateExperience');
-     Route::delete('/destroyExperience/{id}', [App\Http\Controllers\AdminController::class, 'destroyExperience'])->name('admin.destroyExperience');
+    //===================================Experience=======================================
+    Route::get('/experience', [App\Http\Controllers\AdminController::class, 'experience'])->name('admin.experience');
+    Route::post('/storeExperience', [App\Http\Controllers\AdminController::class, 'storeExperience'])->name('admin.storeExperience');
+    Route::put('/updateExperience/{id}', [App\Http\Controllers\AdminController::class, 'updateExperience'])->name('admin.updateExperience');
+    Route::delete('/destroyExperience/{id}', [App\Http\Controllers\AdminController::class, 'destroyExperience'])->name('admin.destroyExperience');
+    //===================================Tags=======================================
+    Route::get('/tags', [App\Http\Controllers\AdminController::class, 'tags'])->name('admin.tags');
+    Route::post('/storeTags', [App\Http\Controllers\AdminController::class, 'storeTags'])->name('admin.storeTags');
+    Route::put('/updateTags/{id}', [App\Http\Controllers\AdminController::class, 'updateTags'])->name('admin.updateTags');
+    Route::delete('/destroyTags/{id}', [App\Http\Controllers\AdminController::class, 'destroyTags'])->name('admin.destroyTags');
 });
