@@ -1,3 +1,4 @@
+<script src="{{asset('admin/ckeditor5/ckeditor.js')}}"></script>
 <script src="{{asset('admin/vendors/scripts/core.js')}}"></script>
 <script src="{{asset('admin/vendors/scripts/script.min.js')}}"></script>
 <script src="{{asset('admin/vendors/scripts/process.js')}}"></script>

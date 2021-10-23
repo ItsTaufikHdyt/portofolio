@@ -9,21 +9,28 @@ use App\Models\about;
 use App\Repositories\Admin\Education\EducationRepository;
 use App\Http\Requests\Admin\Education\storeEducationRequest;
 use App\Models\education;
+
+use App\Repositories\Admin\Experience\ExperienceRepository;
+use App\Http\Requests\Admin\Experience\storeExperienceRequest;
+use App\Models\experience;
+
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
 class AdminController extends Controller
 {
-    protected $aboutRepository, $educationRepository;
+    protected $aboutRepository, $educationRepository, $experienceRepository;
 
     public function __construct(
         AboutRepository $aboutRepository,
-        EducationRepository $educationRepository
+        EducationRepository $educationRepository,
+        ExperienceRepository $experienceRepository
     ) {
         $this->middleware('auth');
         $this->aboutRepository = $aboutRepository;
         $this->educationRepository = $educationRepository;
+        $this->experienceRepository = $experienceRepository;
     }
 
     public function index()
@@ -109,6 +116,47 @@ class AdminController extends Controller
         }catch(Throwable $e){
             Alert::error('Error', $e);
             return redirect()->route('admin.education');
+        }
+    }
+
+    //================================EXPERIENCE===========================
+    public function experience()
+    {
+        $experience = experience::all();
+        return view('admin.experience.index',compact('experience'));
+    }
+
+    public function storeExperience(storeExperienceRequest $request)
+    {
+        try{
+            $about = $this->experienceRepository->storeExperience($request);
+            Alert::success('Store Experience', 'Success');
+            return redirect()->route('admin.experience',compact('about'));
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.experience');
+        }
+    }
+    public function updateExperience(storeExperienceRequest $request,$id)
+    {
+        try{
+            $about = $this->experienceRepository->updateExperience($request,$id);
+            Alert::success('Update Experience', 'Success');
+            return redirect()->route('admin.experience',compact('about'));
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.experience');
+        }
+    }
+    public function destroyExperience($id)
+    {
+        try{
+            $about = $this->experienceRepository->destroyExperience($id);
+            Alert::success('Destroy Experience', 'Success');
+            return redirect()->route('admin.experience');
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.experience');
         }
     }
 }

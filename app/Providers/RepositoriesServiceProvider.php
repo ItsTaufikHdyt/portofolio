@@ -9,6 +9,9 @@ use App\Repositories\Admin\Core\About\AboutRepositoryInterface;
 use App\Repositories\Admin\Education\EducationRepository;
 use App\Repositories\Admin\Core\Education\EducationRepositoryInterface;
 
+use App\Repositories\Admin\Experience\ExperienceRepository;
+use App\Repositories\Admin\Core\Experience\ExperienceRepositoryInterface;
+
 
 use Illuminate\Support\ServiceProvider;
 
@@ -36,8 +39,8 @@ class RepositoriesServiceProvider extends ServiceProvider
             AboutRepository::class,
             EducationRepositoryInterface::class,
             EducationRepository::class,
-
-
+            ExperienceRepositoryInterface::class,
+            ExperienceRepository::class,
         );
     }
 }

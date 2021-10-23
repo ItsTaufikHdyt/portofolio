@@ -18,7 +18,7 @@ class EducationRepository implements EducationRepositoryInterface
 
     public function storeEducation($request)
     {
-        $aeducation= education::create([
+        $education= education::create([
             'title' => $request->title,
             'period' => $request->period,
             'location' => $request->location,

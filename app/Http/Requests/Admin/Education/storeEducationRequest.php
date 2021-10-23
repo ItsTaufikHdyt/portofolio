@@ -33,9 +33,9 @@ class storeEducationRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Deskripsi Tidak Boleh Kosong',
-            'period.required' => 'Website Tidak Boleh Kosong',
-            'location.required' => 'Phone Tidak Boleh Kosong',
+            'title.required' => 'Judul Tidak Boleh Kosong',
+            'period.required' => 'Periode Tidak Boleh Kosong',
+            'location.required' => 'Lokasi Tidak Boleh Kosong',
         ];
     }
 }

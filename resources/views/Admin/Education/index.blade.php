@@ -24,7 +24,7 @@ Education
     </button>
 </div>
 @endif
-<button data-toggle="modal" data-target="#createAboutModal" type="button" class="btn btn-success">Create</button>
+<button data-toggle="modal" data-target="#createEducationModal" type="button" class="btn btn-success">Create</button>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>
@@ -47,7 +47,7 @@ Education
                 <th scope="row">{{$data->period}}</th>
                 <th scope="row">{{$data->location}}</th>
                 <th scope="row">
-                    <button data-toggle="modal" data-target="#updateAboutModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>
+                    <button data-toggle="modal" data-target="#updateEducationModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>
                     @include('Admin.Education.update')
                     <button data-toggle="modal" data-target="#confirmationModal{{$data->id}}" type="button" class="btn btn-danger">Delete</button>
                     @include('Admin.Education.delete-confirmation')
