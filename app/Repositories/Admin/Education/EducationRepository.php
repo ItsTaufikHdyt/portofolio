@@ -3,7 +3,6 @@
 namespace App\Repositories\Admin\Education;
 
 use App\Repositories\Admin\Core\Education\EducationRepositoryInterface;
-use Illuminate\Http\Request;
 use App\Models\education;
 
 class EducationRepository implements EducationRepositoryInterface

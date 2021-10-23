@@ -18,6 +18,10 @@ use App\Repositories\Admin\Tags\TagsRepository;
 use App\Http\Requests\Admin\Tags\storeTagsRequest;
 use App\Models\tags;
 
+use App\Repositories\Admin\Skills\SkillsRepository;
+use App\Http\Requests\Admin\Skills\storeSkillsRequest;
+use App\Models\skills;
+
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -25,19 +29,21 @@ use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
     protected $aboutRepository, $educationRepository, 
-    $experienceRepository, $tagsRepository;
+    $experienceRepository, $tagsRepository, $skillsRepository;
 
     public function __construct(
         AboutRepository $aboutRepository,
         EducationRepository $educationRepository,
         ExperienceRepository $experienceRepository,
-        TagsRepository $tagsRepository
+        TagsRepository $tagsRepository,
+        SkillsRepository $skillsRepository
     ) {
         $this->middleware('auth');
         $this->aboutRepository = $aboutRepository;
         $this->educationRepository = $educationRepository;
         $this->experienceRepository = $experienceRepository;
         $this->tagsRepository = $tagsRepository;
+        $this->skillsRepository = $skillsRepository;
     }
 
     public function index()
@@ -204,6 +210,46 @@ class AdminController extends Controller
         }catch(Throwable $e){
             Alert::error('Error', $e);
             return redirect()->route('admin.tags');
+        }
+    }
+    //================================Skills===========================
+    public function skills()
+    {
+        $skills = skills::paginate(5);
+        return view('admin.skills.index',compact('skills'));
+    }
+
+    public function storeSkills(storeSkillsRequest $request)
+    {
+        try{
+            $about = $this->skillsRepository->storeSkills($request);
+            Alert::success('Store Skills', 'Success');
+            return redirect()->route('admin.skills',compact('about'));
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.skills');
+        }
+    }
+    public function updateSkills(storeSkillsRequest $request,$id)
+    {
+        try{
+            $about = $this->skillsRepository->updateSkills($request,$id);
+            Alert::success('Update Skills', 'Success');
+            return redirect()->route('admin.skills',compact('about'));
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.skills');
+        }
+    }
+    public function destroySkills($id)
+    {
+        try{
+            $about = $this->skillsRepository->destroySkills($id);
+            Alert::success('Destroy Skills', 'Success');
+            return redirect()->route('admin.skills');
+        }catch(Throwable $e){
+            Alert::error('Error', $e);
+            return redirect()->route('admin.skills');
         }
     }
 }

@@ -20,6 +20,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('admin/src/plugins/datatables/css/responsive.bootstrap4.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('admin/vendors/styles/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('admin/src/plugins/jquery-steps/jquery.steps.css')}}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script> -->
 	<script>

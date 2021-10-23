@@ -15,6 +15,9 @@ use App\Repositories\Admin\Core\Experience\ExperienceRepositoryInterface;
 use App\Repositories\Admin\Tags\TagsRepository;
 use App\Repositories\Admin\Core\Tags\TagsRepositoryInterface;
 
+use App\Repositories\Admin\Skills\SkillsRepository;
+use App\Repositories\Admin\Core\Skills\SkillsRepositoryInterface;
+
 
 use Illuminate\Support\ServiceProvider;
 
@@ -46,6 +49,8 @@ class RepositoriesServiceProvider extends ServiceProvider
             ExperienceRepository::class,
             TagsRepositoryInterface::class,
             TagsRepository::class,
+            SkillsRepositoryInterface::class,
+            SkillsRepository::class,
         );
     }
 }

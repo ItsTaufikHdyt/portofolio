@@ -3,7 +3,6 @@
 namespace App\Repositories\Admin\About;
 
 use App\Repositories\Admin\Core\About\AboutRepositoryInterface;
-use Illuminate\Http\Request;
 use App\Models\about;
 
 class AboutRepository implements AboutRepositoryInterface
