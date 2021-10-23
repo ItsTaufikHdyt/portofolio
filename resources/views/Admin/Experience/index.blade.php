@@ -31,6 +31,7 @@ Experience
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
+                <th scope="col">Desc</th>
                 <th scope="col">Period</th>
                 <th scope="col">Location</th>
                 <th scope="col">Action</th>
@@ -44,6 +45,7 @@ Experience
             <tr>
                 <th scope="row">{{$no++}}</th>
                 <th scope="row">{{$data->title}}</th>
+                <th scope="row">{!!$data->desc!!}</th>
                 <th scope="row">{{$data->period}}</th>
                 <th scope="row">{{$data->location}}</th>
                 <th scope="row">
@@ -55,9 +57,11 @@ Experience
             </tr>
             @empty
             <tr>
-                <center>
-                    <th collspan="9">Data Not Found</th>
-                </center>
+                <th colspan="5">
+                    <center>
+                        Data Not Found
+                    </center>
+                </th>
             </tr>
             @endforelse
         </tbody>
@@ -77,7 +81,7 @@ Experience
         .catch(error => {
             console.error(error);
         });
-        ClassicEditor
+    ClassicEditor
         .create(document.querySelector('#edit-editor')[0])
         .then(editor => {
             console.log(editor);

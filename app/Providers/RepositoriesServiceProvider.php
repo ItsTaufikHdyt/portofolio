@@ -18,6 +18,9 @@ use App\Repositories\Admin\Core\Tags\TagsRepositoryInterface;
 use App\Repositories\Admin\Skills\SkillsRepository;
 use App\Repositories\Admin\Core\Skills\SkillsRepositoryInterface;
 
+use App\Repositories\Admin\Portfolio\PortfolioRepository;
+use App\Repositories\Admin\Core\Portfolio\PortfolioRepositoryInterface;
+
 
 use Illuminate\Support\ServiceProvider;
 
@@ -51,6 +54,8 @@ class RepositoriesServiceProvider extends ServiceProvider
             TagsRepository::class,
             SkillsRepositoryInterface::class,
             SkillsRepository::class,
+            PortfolioRepositoryInterface::class,
+            PortfolioRepository::class,
         );
     }
 }

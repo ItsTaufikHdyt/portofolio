@@ -26,7 +26,7 @@
 						<li><a href="{{Route('admin.experience')}}">Experience</a></li>
 						<li><a href="{{Route('admin.tags')}}">Tags</a></li>
 						<li><a href="{{Route('admin.skills')}}">Skills</a></li>
-						<li><a href="{{url('admin.index')}}">Portfolio</a></li>
+						<li><a href="{{Route('admin.portfolio')}}">Portfolio</a></li>
 					</ul>
 				</li>
 			</ul>

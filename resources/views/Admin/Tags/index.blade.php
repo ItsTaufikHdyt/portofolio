@@ -51,9 +51,11 @@ Tags
             </tr>
             @empty
             <tr>
-                <center>
-                    <th collspan="9">Data Not Found</th>
-                </center>
+                <th colspan="3">
+                    <center>
+                        Data Not Found
+                    </center>
+                </th>
             </tr>
             @endforelse
         </tbody>

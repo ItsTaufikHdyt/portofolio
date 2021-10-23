@@ -11,4 +11,11 @@
 <script src="{{asset('admin/vendors/scripts/dashboard.js')}}"></script>
 <script src="{{asset('admin/src/plugins/jquery-steps/jquery.steps.js')}}"></script>
 <script src="{{asset('admin/vendors/scripts/steps-setting.js')}}"></script>
+<!-- switchery js -->
+<script src="{{asset('admin/src/plugins/switchery/switchery.min.js')}}"></script>
+<!-- bootstrap-tagsinput js -->
+<script src="{{asset('admin/src/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')}}"></script>
+<!-- bootstrap-touchspin js -->
+<script src="{{asset('admin/src/plugins/bootstrap-touchspin/jquery.bootstrap-touchspin.js')}}"></script>
+<script src="{{asset('admin/vendors/scripts/advanced-components.js')}}"></script>
 @yield('custom_scripts')

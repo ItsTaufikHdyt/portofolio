@@ -22,21 +22,26 @@ use App\Repositories\Admin\Skills\SkillsRepository;
 use App\Http\Requests\Admin\Skills\storeSkillsRequest;
 use App\Models\skills;
 
-use Illuminate\Http\Request;
+use App\Repositories\Admin\Portfolio\PortfolioRepository;
+use App\Http\Requests\Admin\Portfolio\storePortfolioRequest;
+use App\Models\portfolio;
+use App\Models\portfolio_tags;
+
 use RealRashid\SweetAlert\Facades\Alert;
 
 
 class AdminController extends Controller
 {
     protected $aboutRepository, $educationRepository, 
-    $experienceRepository, $tagsRepository, $skillsRepository;
+    $experienceRepository, $tagsRepository, $skillsRepository, $portfolio;
 
     public function __construct(
         AboutRepository $aboutRepository,
         EducationRepository $educationRepository,
         ExperienceRepository $experienceRepository,
         TagsRepository $tagsRepository,
-        SkillsRepository $skillsRepository
+        SkillsRepository $skillsRepository,
+        PortfolioRepository $portfolioRepository
     ) {
         $this->middleware('auth');
         $this->aboutRepository = $aboutRepository;
@@ -44,6 +49,7 @@ class AdminController extends Controller
         $this->experienceRepository = $experienceRepository;
         $this->tagsRepository = $tagsRepository;
         $this->skillsRepository = $skillsRepository;
+        $this->portfolioRepository = $portfolioRepository;
     }
 
     public function index()
@@ -252,4 +258,57 @@ class AdminController extends Controller
             return redirect()->route('admin.skills');
         }
     }
+     //================================PORTFOLIO===========================
+     public function portfolio()
+     {
+         $portfolio = portfolio::paginate(5);
+         $data_tags = tags::all();
+         $portfolio_tags = portfolio_tags::all();
+         return view('admin.portfolio.index',compact(['portfolio','data_tags','portfolio_tags']));
+     }
+ 
+     public function storePortfolio(storePortfolioRequest $request)
+     {
+         try{
+             $about = $this->portfolioRepository->storePortfolio($request);
+             Alert::success('Store Portfolio', 'Success');
+             return redirect()->route('admin.portfolio',compact('about'));
+         }catch(Throwable $e){
+             Alert::error('Error', $e);
+             return redirect()->route('admin.portfolio');
+         }
+     }
+     public function updatePortfolio(storePortfolioRequest $request,$id)
+     {
+         try{
+             $about = $this->portfolioRepository->updatePortfolio($request,$id);
+             Alert::success('Update Portfolio', 'Success');
+             return redirect()->route('admin.portfolio',compact('about'));
+         }catch(Throwable $e){
+             Alert::error('Error', $e);
+             return redirect()->route('admin.portfolio');
+         }
+     }
+     public function destroyImagePortfolio($id)
+     {
+         try{
+             $about = $this->portfolioRepository->destroyImagePortfolio($id);
+             Alert::success('Destroy Image Portfolio', 'Success');
+             return redirect()->route('admin.portfolio');
+         }catch(Throwable $e){
+             Alert::error('Error', $e);
+             return redirect()->route('admin.portfolio');
+         }
+     }
+     public function destroyPortfolio($id)
+     {
+         try{
+             $about = $this->portfolioRepository->destroyPortfolio($id);
+             Alert::success('Destroy Portfolio', 'Success');
+             return redirect()->route('admin.portfolio');
+         }catch(Throwable $e){
+             Alert::error('Error', $e);
+             return redirect()->route('admin.portfolio');
+         }
+     }
 }

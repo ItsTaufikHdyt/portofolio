@@ -12,7 +12,7 @@ class tags extends Model
     protected $guarded = [];
 
     public function portfolio(){
-        return $this->belongsToMany(portfolio::class,'tags_id');
+        return $this->belongsToMany(portfolio::class,'portfolio_tags','tags_id');
      }
     // public function portfolio(){
     //     return $this->belongsToMany(portfolio::class,'portfolio_tags')->withPivot([
