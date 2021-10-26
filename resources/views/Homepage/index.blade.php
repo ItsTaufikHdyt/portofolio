@@ -200,7 +200,7 @@
                         <h3>{{$data->name}}</h3> |
                         <h3>
                             @if ($data->level == 1)
-                            Bginner
+                            Beginner
                             @elseif($data->level == 2)
                             Intermediate
                             @elseif($data->level == 3)
@@ -416,7 +416,7 @@
 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-app">
                     <div class="portfolio-wrap">
-                        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+                        <img src="{{asset('portfolios/assets/img/portfolio/portfolio-1.jpg')}}" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h4>App 1</h4>
                             <p>App</p>
@@ -595,7 +595,8 @@
                 </div>
             </div>
 
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
+            <form action="{{route('homepage.sendMail')}}" method="post" role="form" class="php-email-form mt-4">
+                @csrf
                 <div class="form-row">
                     <div class="col-md-6 form-group">
                         <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -616,7 +617,6 @@
                 </div>
                 <div class="mb-3">
                     <div class="loading">Loading</div>
-                    <div class="error-message"></div>
                     <div class="sent-message">Your message has been sent. Thank you!</div>
                 </div>
                 <div class="text-center"><button type="submit">Send Message</button></div>

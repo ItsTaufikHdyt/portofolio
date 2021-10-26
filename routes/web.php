@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index');
+Route::post('/sendMail', [App\Http\Controllers\PortfolioController::class, 'sendMail'])->name('homepage.sendMail');
 
 Auth::routes();
 
