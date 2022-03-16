@@ -8,11 +8,12 @@
  <script src="{{asset('portfolios/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
  <script src="{{asset('portfolios/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
  <script src="{{asset('portfolios/assets/vendor/venobox/venobox.min.js')}}"></script>
- <script src="{{asset('particles-js/particles.min.js')}}"></script>
 
  <!-- Template Main JS File -->
  <script src="{{asset('portfolios/assets/js/main.js')}}"></script>
- 
+ <script type="text/javascript">
+    $('.modal').parent().on('show.bs.modal', function (e) { $(e.relatedTarget.attributes['data-target'].value).appendTo('body'); })
+</script>
 
 @stack('scripts')
 

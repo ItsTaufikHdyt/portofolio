@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input name="email" value="{{$data->email}}" class="form-control" type="email">
+                        <input name="email" value="{{$data->email}}" class="form-control" type="text">
                         @error('city') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
                     <div class="form-group">

@@ -30,7 +30,7 @@ class PortfolioRepository implements PortfolioRepositoryInterface
 
         foreach ($request->images as $key => $image) {
             $name = str_replace(' ', '', $image->getClientOriginalName());
-            $image->storeAs('public/portofolio/images', $name);
+            $image->storeAs('public/portfolios/images', $name);
             $data_images = new images();
             $data_images->filename = $name;
             $portfolio->images()->save($data_images);
@@ -51,7 +51,7 @@ class PortfolioRepository implements PortfolioRepositoryInterface
 
         foreach ($request->images as $key => $image) {
             $name = str_replace(' ', '', $image->getClientOriginalName());
-            $image->storeAs('public/portofolio/images', $name);
+            $image->storeAs('public/portfolios/images', $name);
             $data_images = new images();
             $data_images->filename = $name;
             $portfolio->images()->save($data_images);
@@ -61,7 +61,7 @@ class PortfolioRepository implements PortfolioRepositoryInterface
     public function destroyImagePortfolio($id)
     {
         $images = images::find($id);
-        Storage::delete('public/portofolio/images/' . $images->filename);
+        Storage::delete('public/portfolios/images/' . $images->filename);
         $images->delete();
     }
 
@@ -71,7 +71,7 @@ class PortfolioRepository implements PortfolioRepositoryInterface
         if ($portfolio) {
             $portfolio = portfolio::find($id);
             foreach ($portfolio->images as $key => $image) {
-                Storage::delete('public/portofolio/images/' . $image->filename);
+                Storage::delete('public/portfolios/images/' . $image->filename);
             }
             $portfolio->delete();
         }
