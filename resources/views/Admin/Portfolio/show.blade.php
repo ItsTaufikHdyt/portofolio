@@ -14,7 +14,7 @@
                         <div class="modal-body text-center font-18">
                             <div class="row">
                                 <div class="col-lg-8">
-                                    <img width="500" height="500" src="{{(asset('storage/portofolio/images/'.$data->filename))}}" alt="">
+                                    <img width="500" height="500" src="{{(asset('storage/portfolios/images/'.$data->filename))}}" alt="">
                                 </div>
                                 <div class="col-lg-4">
                                     <input type="hidden" id="id" name="id" value="">
