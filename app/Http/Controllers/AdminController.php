@@ -54,14 +54,14 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.index');
+        return view('Admin.index');
     }
 
     //================================ABOUT===========================
     public function about()
     {
         $about = About::all();
-        return view('admin.about.index',compact('about'));
+        return view('Admin.About.index',compact('about'));
     }
 
     public function storeAbout(storeAboutRequest $request)
@@ -101,7 +101,7 @@ class AdminController extends Controller
     public function education()
     {
         $education = education::all();
-        return view('admin.education.index',compact('education'));
+        return view('Admin.Education.index',compact('education'));
     }
 
     public function storeEducation(storeEducationRequest $request)
@@ -142,7 +142,7 @@ class AdminController extends Controller
     public function experience()
     {
         $experience = experience::all();
-        return view('admin.experience.index',compact('experience'));
+        return view('Admin.Experience.index',compact('experience'));
     }
 
     public function storeExperience(storeExperienceRequest $request)
@@ -182,7 +182,7 @@ class AdminController extends Controller
     public function tags()
     {
         $tags = tags::paginate(5);
-        return view('admin.tags.index',compact('tags'));
+        return view('Admin.Tags.index',compact('tags'));
     }
 
     public function storeTags(storeTagsRequest $request)
@@ -222,7 +222,7 @@ class AdminController extends Controller
     public function skills()
     {
         $skills = skills::paginate(5);
-        return view('admin.skills.index',compact('skills'));
+        return view('Admin.Skills.index',compact('skills'));
     }
 
     public function storeSkills(storeSkillsRequest $request)
@@ -264,7 +264,7 @@ class AdminController extends Controller
          $portfolio = portfolio::paginate(5);
          $data_tags = tags::all();
          $portfolio_tags = portfolio_tags::all();
-         return view('admin.portfolio.index',compact(['portfolio','data_tags','portfolio_tags']));
+         return view('Admin.Portfolio.index',compact(['portfolio','data_tags','portfolio_tags']));
      }
  
      public function storePortfolio(storePortfolioRequest $request)

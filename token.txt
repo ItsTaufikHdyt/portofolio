@@ -1,0 +1,5 @@
+github token
+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
+
+mysql
+pass : N8H{rB*5-X#F
