@@ -415,13 +415,9 @@
             <div class="row portfolio-container">
 
                 @forelse ($portfolio as $data)
-              
                 <div class="col-lg-4 col-md-6 portfolio-item filter-{!!$data->type!!}">
                     <div class="portfolio-wrap">
-
-                        <!-- <img src="{{asset('portfoliosss/assets/img/portfolio/portfolio-1.jpg')}}" class="img-fluid" alt=""> -->
                         <img src="{{asset('storage/portfolios/images/'.$data->images()->first()->filename)}}" class="img-fluid" alt="">
-
                         <div class="portfolio-info">
                             <h4>{{$data->portfolio_title}}</h4>
                             <p> @if($data->type === 1)
@@ -431,10 +427,9 @@
                                 @elseif($data->type === 3)
                                 Dekstop
                                 @endif
-
                             </p>
                             <div class="portfolio-links">
-                            @include('Homepage.portfolio-details')
+                                @include('Homepage.portfolio-details')
                                 <!-- <a href="assets/img/portfolio/portfolio-1.jpg" data-gall="portfolioGallery" class="venobox" title="App 1"><i class="bx bx-plus"></i></a> -->
                                 <button data-toggle="modal" data-gall="portfolioDetailsGallery" data-vbtype="iframe" data-target="#showDetails{{$data->id}}" class="btn btn-warning btn-md"><i class="bx bx-link"></i></button>
                                 <!-- <a href="portfolio-details.html" data-gall="portfolioDetailsGallery" data-vbtype="iframe" class="venobox" title="Portfolio Details"><i class="bx bx-link"></i></a> -->
@@ -443,7 +438,7 @@
                     </div>
                 </div>
                 @empty
-
+                <div></div>
                 @endforelse
 
             </div>

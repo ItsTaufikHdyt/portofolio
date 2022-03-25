@@ -47,6 +47,7 @@ Route::group(['middleware' => ['auth'], "prefix" => "admin/"], function () {
     Route::delete('/destroySkills/{id}', [App\Http\Controllers\AdminController::class, 'destroySkills'])->name('admin.destroySkills');
     //===================================PORTFOLIO=======================================
     Route::get('/portfolio', [App\Http\Controllers\AdminController::class, 'portfolio'])->name('admin.portfolio');
+    Route::get('/show-portfolio-images/{id}', [App\Http\Controllers\AdminController::class, 'showImagePortfolio'])->name('admin.showImagePortfolio');
     Route::post('/storePortfolio', [App\Http\Controllers\AdminController::class, 'storePortfolio'])->name('admin.storePortfolio');
     Route::put('/updatePortfolio/{id}', [App\Http\Controllers\AdminController::class, 'updatePortfolio'])->name('admin.updatePortfolio');
     Route::delete('/destroyImagePortfolio/{id}', [App\Http\Controllers\AdminController::class, 'destroyImagePortfolio'])->name('admin.destroyImagePortfolio');

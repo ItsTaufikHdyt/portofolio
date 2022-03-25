@@ -266,6 +266,12 @@ class AdminController extends Controller
          $portfolio_tags = portfolio_tags::all();
          return view('Admin.Portfolio.index',compact(['portfolio','data_tags','portfolio_tags']));
      }
+
+     public function showImagePortfolio($id)
+     {
+        $portfolio = portfolio::find($id);
+        return view('Admin.Portfolio.show',compact('portfolio'));
+     }
  
      public function storePortfolio(storePortfolioRequest $request)
      {

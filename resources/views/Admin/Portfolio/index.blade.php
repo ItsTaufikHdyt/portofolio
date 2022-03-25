@@ -67,8 +67,7 @@ Portfolio
                     @endforeach
                 </th>
                 <th scope="row">
-                    <button data-toggle="modal" data-target="#portfolioShowModal{{$data->id}}" type="button" class="btn btn-dark">Show</button>
-                    @include('Admin.Portfolio.show')
+                    <a href="{{Route('admin.showImagePortfolio', $data->id)}}" class="btn btn-dark">Show</a>
                     <button data-toggle="modal" data-target="#updatePortfolioModal{{$data->id}}" type="button" class="btn btn-warning">Edit</button>
                     @include('Admin.Portfolio.update')
                     <button data-toggle="modal" data-target="#confirmationModal{{$data->id}}" type="button" class="btn btn-danger">Delete</button>
