@@ -27,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
         $this->loadViewsFrom(__DIR__.'/../views','admin');
         $this->loadViewsFrom(__DIR__.'/../views','portfolio');
+        $this->loadViewsFrom(__DIR__.'/../views','vcard');
     }
 }

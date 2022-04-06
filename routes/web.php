@@ -12,8 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index');
+/* portfolio 1*/
+// Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index');
+/* portfolio 2*/
+Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index2'])->name('homepage.index');
 Route::post('/sendMail', [App\Http\Controllers\PortfolioController::class, 'sendMail'])->name('homepage.sendMail');
 
 Auth::routes();

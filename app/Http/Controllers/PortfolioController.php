@@ -17,12 +17,27 @@ class PortfolioController extends Controller
     {
         $about = about::firstOrFail();
         $skills = skills::all();
-        $education = education::all();
+        $education = education::latest()->get();
         $experience = experience::latest()->get();
         $portfolio = portfolio::all();
         $projects = portfolio::count();
 
         return view('Homepage.index', compact([
+            'about', 'skills',
+            'education', 'experience', 'portfolio', 'projects'
+        ]));
+    }
+
+    public function index2()
+    {
+        $about = about::firstOrFail();
+        $skills = skills::all();
+        $education = education::all();
+        $experience = experience::latest()->get();
+        $portfolio = portfolio::all();
+        $projects = portfolio::count();
+
+        return view('Homepage2.index', compact([
             'about', 'skills',
             'education', 'experience', 'portfolio', 'projects'
         ]));
