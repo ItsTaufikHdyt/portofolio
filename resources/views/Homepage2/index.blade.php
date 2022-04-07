@@ -2,9 +2,7 @@
 @section('main-content')
 <main>
 
-    <!--
-      - #SIDEBAR
-    -->
+    <!--- #SIDEBAR-->
 
     <aside class="sidebar" data-sidebar>
 
@@ -131,19 +129,11 @@
 
     </aside>
 
-
-
-
-
-    <!--
-      - #main-content
-    -->
+    <!--- #main-content-->
 
     <div class="main-content">
 
-        <!--
-        - #NAVBAR
-      -->
+        <!--- #NAVBAR-->
 
         <nav class="navbar">
 
@@ -174,12 +164,7 @@
         </nav>
 
 
-
-
-
-        <!--
-        - #ABOUT
-      -->
+        <!--- #ABOUT-->
 
         <article class="about  active" data-page="about">
 
@@ -194,9 +179,7 @@
             </section>
 
 
-            <!--
-          - service
-        -->
+            <!--- service-->
 
             <section class="service">
 
@@ -417,9 +400,7 @@
             </div>
 
 
-            <!--
-          - clients
-        -->
+            <!--- clients-->
 
             <section class="clients">
 
@@ -482,12 +463,7 @@
         </article>
 
 
-
-
-
-        <!--
-        - #RESUME
-      -->
+        <!--- #RESUME-->
 
         <article class="resume" data-page="resume">
 
@@ -621,12 +597,7 @@
         </article>
 
 
-
-
-
-        <!--
-        - #PORTFOLIO
-      -->
+        <!--- #PORTFOLIO-->
         <article class="portfolio" data-page="portfolio">
 
             <header>
@@ -691,15 +662,15 @@
 
                 <ul class="project-list">
                     @forelse ($portfolio as $data)
-                    
+
                     <li class="project-item  active" @if($data->type === 1)
-                    data-filter-item data-category="web"
-                    @elseif($data->type === 2)
-                    data-filter-item data-category="mobile"
-                    @elseif($data->type === 3)
-                    data-filter-item data-category="dekstop"
-                    @endif>
-                        <a href="#">
+                        data-filter-item data-category="web"
+                        @elseif($data->type === 2)
+                        data-filter-item data-category="mobile"
+                        @elseif($data->type === 3)
+                        data-filter-item data-category="dekstop"
+                        @endif>
+                        <a href="#exampleModal{{$data->id}}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">
 
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
@@ -720,157 +691,15 @@
                                 Dekstop
                                 @endif
                             </p>
-
                         </a>
+
                     </li>
+                    <div class="bootstrap-style">
+                        @include('Homepage2.portfolio-details')
+                    </div>
                     @empty
 
                     @endforelse
-                    <!-- 
-                    <li class="project-item  active" data-filter-item data-category="web development">
-                        <a href="#">
-
-                            <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
-
-                                <img src="{{asset('vcard/images/project-2.png')}}" alt="orizon" loading="lazy">
-                            </figure>
-
-                            <h3 class="project-title">Orizon</h3>
-
-                            <p class="project-category">Web development</p>
-
-                        </a>
-                    </li>
-
-                    <li class="project-item  active" data-filter-item data-category="web design">
-                        <a href="#">
-
-                            <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
-
-                                <img src="{{asset('vcard/images/project-3.jpg')}}" alt="fundo" loading="lazy">
-                            </figure>
-
-                            <h3 class="project-title">Fundo</h3>
-
-                            <p class="project-category">Web design</p>
-
-                        </a>
-                    </li>
-
-                    <li class="project-item  active" data-filter-item data-category="applications">
-                        <a href="#">
-
-                            <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
-
-                                <img src="{{asset('vcard/images/project-4.png')}}" alt="brawlhalla" loading="lazy">
-                            </figure>
-
-                            <h3 class="project-title">Brawlhalla</h3>
-
-                            <p class="project-category">Applications</p>
-
-                        </a>
-                    </li>
-
-                    <li class="project-item  active" data-filter-item data-category="web design">
-                        <a href="#">
-
-                            <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
-
-                                <img src="{{asset('vcard/images/project-5.png')}}" alt="dsm." loading="lazy">
-                            </figure>
-
-                            <h3 class="project-title">DSM.</h3>
-
-                            <p class="project-category">Web design</p>
-
-                        </a>
-                    </li>
-
-                    <li class="project-item  active" data-filter-item data-category="web design">
-                        <a href="#">
-
-                            <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
-
-                                <img src="{{asset('vcard/images/project-6.png')}}" alt="metaspark" loading="lazy">
-                            </figure>
-
-                            <h3 class="project-title">MetaSpark</h3>
-
-                            <p class="project-category">Web design</p>
-
-                        </a>
-                    </li>
-
-                    <li class="project-item  active" data-filter-item data-category="web development">
-                        <a href="#">
-
-                            <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
-
-                                <img src="{{asset('vcard/images/project-7.png')}}" alt="summary" loading="lazy">
-                            </figure>
-
-                            <h3 class="project-title">Summary</h3>
-
-                            <p class="project-category">Web development</p>
-
-                        </a>
-                    </li>
-
-                    <li class="project-item  active" data-filter-item data-category="applications">
-                        <a href="#">
-
-                            <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
-
-                                <img src="{{asset('vcard/images/project-8.jpg')}}" alt="task manager" loading="lazy">
-                            </figure>
-
-                            <h3 class="project-title">Task Manager</h3>
-
-                            <p class="project-category">Applications</p>
-
-                        </a>
-                    </li>
-
-                    <li class="project-item  active" data-filter-item data-category="web development">
-                        <a href="#">
-
-                            <figure class="project-img">
-                                <div class="project-item-icon-box">
-                                    <ion-icon name="eye-outline"></ion-icon>
-                                </div>
-
-                                <img src="{{asset('vcard/images/project-9.png')}}" alt="arrival" loading="lazy">
-                            </figure>
-
-                            <h3 class="project-title">Arrival</h3>
-
-                            <p class="project-category">Web development</p>
-
-                        </a>
-                    </li> -->
-
                 </ul>
 
             </section>
@@ -878,12 +707,7 @@
         </article>
 
 
-
-
-
-        <!--
-        - #BLOG
-      -->
+        <!--- #BLOG-->
 
         <article class="blog" data-page="blog">
 
@@ -1070,12 +894,7 @@
         </article>
 
 
-
-
-
-        <!--
-        - #CONTACT
-      -->
+        <!--- #CONTACT-->
 
         <article class="contact" data-page="contact">
 

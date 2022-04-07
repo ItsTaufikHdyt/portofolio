@@ -13,8 +13,11 @@
     - custom css link
   -->
   <link rel="stylesheet" href="{{asset('vcard/css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('vcard/css/jquery.modal.min.css')}}">
+  <link rel="stylesheet" href="{{asset('vcard/bootstrap5/css/bootstrap.css')}}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+
+
 
   <!--
     - google font link

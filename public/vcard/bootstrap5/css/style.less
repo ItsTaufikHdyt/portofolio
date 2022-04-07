@@ -1,0 +1,28 @@
+@import (less) 'bootstrap.css';
+
+// Manually include styles using selectors that will not work when namespaced.
+
+& {
+    // From normalize.less
+
+    // Previously inside "html {"
+    // font-family: sans-serif; // Overridden below
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+
+    // Previously inside "body {"
+    margin: 0;
+
+    // From scaffolding.less
+
+    // Previously inside "html {"
+    // font-size: 10px; // Overridden below
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+
+    // Previously inside "body {"
+    font-family: @font-family-base;
+    font-size: @font-size-base;
+    line-height: @line-height-base;
+    color: @text-color;
+    background-color: @body-bg;
+}

@@ -12,10 +12,9 @@
  <!-- Template Main JS File -->
  <script src="{{asset('portfolios/assets/js/main.js')}}"></script>
  <script type="text/javascript">
-    $('.modal').parent().on('show.bs.modal', function (e) { $(e.relatedTarget.attributes['data-target'].value).appendTo('body'); })
-</script>
+     $('.modal').parent().on('show.bs.modal', function(e) {
+         $(e.relatedTarget.attributes['data-target'].value).appendTo('body');
+     })
+ </script>
 
-@stack('scripts')
-
-
- 
+ @stack('scripts')
