@@ -14,7 +14,10 @@
   -->
   <link rel="stylesheet" href="{{asset('vcard/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('vcard/css/jquery.modal.min.css')}}">
+  <!-- bootstrap5 -->
   <link rel="stylesheet" href="{{asset('vcard/bootstrap5/css/bootstrap.css')}}">
+  <!-- bootstrap4 -->
+  <!-- <link rel="stylesheet" href="{{asset('vcard/bootstrap5/css/bootstrap.css')}}"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.14.0/devicon.min.css">
 
 

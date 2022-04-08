@@ -13,10 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //portfolio 1
-Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index');
+// Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index');
 // portfolio 2
-// Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index2'])->name('homepage.index');
+Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index2'])->name('homepage.index');
 Route::post('/sendMail', [App\Http\Controllers\PortfolioController::class, 'sendMail'])->name('homepage.sendMail');
+Route::post('/sendMail2', [App\Http\Controllers\PortfolioController::class, 'sendMail2'])->name('homepage2.sendMail2');
+Route::get('/get-portfolio/{id}', [App\Http\Controllers\PortfolioController::class, 'getPortfolio'])->name('homepage.getPortfolio');
 
 Auth::routes();
 

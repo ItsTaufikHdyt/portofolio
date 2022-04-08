@@ -167,7 +167,6 @@
         <!--- #ABOUT-->
 
         <article class="about  active" data-page="about">
-
             <header>
                 <h2 class="h2 article-title">About me</h2>
             </header>
@@ -596,10 +595,50 @@
 
         </article>
 
+        <div class="bootstrap-style">
+            <!-- Modal -->
+            <div class="modal fade " id="portfolio_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content rounded-15" style="background-color: #a6a6a6; border: white;">
+                        <div class="modal-header">
+                            <button type="button" id="closeBtn" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="background-color: hsl(240, 2%, 12%);">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4 portfolio-info text-white">
+
+                                        <h3 style="color: white;">Project information</h3>
+                                        <ul style="color: white;">
+                                            <li><strong>Project Title</strong>: <span id="project_title"></span></li>
+                                            <li><strong>Category</strong>: <span id="category"></li>
+                                            <li><strong>Client</strong>: <span id="client"></span> </li>
+                                            <li><strong>Project Date</strong>: <span id="project_date"></span></li>
+                                            <li><strong>Project URL</strong>: <a id="project_url" href=""></a></li>
+                                        </ul>
+
+                                        <p style="color: white;">
+                                            <span id="portfolio_desc"></span>
+                                            <br>
+                                            <span id="tags" class="badge bg-warning text-dark"></span>
+                                        </p>
+
+                                    </div>
+                                    <div class="col-md-8 ml-auto">
+                                        <div id="img" class="img">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!--- #PORTFOLIO-->
         <article class="portfolio" data-page="portfolio">
-
             <header>
                 <h2 class="h2 article-title">Portfolio</h2>
             </header>
@@ -670,13 +709,12 @@
                         @elseif($data->type === 3)
                         data-filter-item data-category="dekstop"
                         @endif>
-                        <a href="#exampleModal{{$data->id}}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$data->id}}">
 
+                        <a href="javascript:void(0)" class="btn btn-warning" id="showPortfolio" data-toggle="modal" data-target="#portfolio_modal" data-id={{$data->id}}>
                             <figure class="project-img">
                                 <div class="project-item-icon-box">
                                     <ion-icon name="eye-outline"></ion-icon>
                                 </div>
-
                                 <img src="{{asset('storage/portfolios/images/'.$data->images()->first()->filename)}}" loading="lazy">
                             </figure>
 
@@ -692,11 +730,8 @@
                                 @endif
                             </p>
                         </a>
-
                     </li>
-                    <div class="bootstrap-style">
-                        @include('Homepage2.portfolio-details')
-                    </div>
+
                     @empty
 
                     @endforelse
@@ -709,7 +744,7 @@
 
         <!--- #BLOG-->
 
-        <article class="blog" data-page="blog">
+        <!-- <article class="blog" data-page="blog">
 
             <header>
                 <h2 class="h2 article-title">Blog</h2>
@@ -891,7 +926,7 @@
 
             </section>
 
-        </article>
+        </article> -->
 
 
         <!--- #CONTACT-->
@@ -912,10 +947,12 @@
 
                 <h3 class="h3 form-title">Contact Form</h3>
 
-                <form action="#" class="form" data-form>
-
+                <form action="{{route('homepage2.sendMail2')}}" method="post" class="form" data-form>
+                    @csrf
+                    <input type="text" name="subject" class="form-input" placeholder="Subject" required data-form-input>
+                    <br>
                     <div class="input-wrapper">
-                        <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+                        <input type="text" name="name" class="form-input" placeholder="Full name" required data-form-input>
 
                         <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
                     </div>
