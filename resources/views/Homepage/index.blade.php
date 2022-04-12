@@ -9,7 +9,7 @@
             <h1 class="font-home">Taufik Hidayat</h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-            <h2 class="font-home">I'm a passionate <span>Fullstack Developer</span> from Indonesia</h2>
+            <h2 class="font-home">I'm a passionate <span>Software Engineer</span> from Indonesia</h2>
 
             <nav class="nav-menu d-none d-lg-block font-home">
                 <ul>

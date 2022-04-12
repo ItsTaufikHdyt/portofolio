@@ -15,7 +15,7 @@
             <div class="info-content">
                 <h1 class="name" title="Taufik Hidayat">Taufik Hidayat</h1>
 
-                <p class="title">Software developer</p>
+                <p class="title">Software Engineer</p>
             </div>
 
             <button class="info_more-btn" data-sidebar-btn>
@@ -482,7 +482,7 @@
 
                 <ol class="timeline-list">
                     @forelse ($education as $data)
-                    <li class="timeline-item">
+                    <li class="timeline-item" style="color: white;">
 
                         <h4 class="h4 timeline-item-title">{{$data->title}}</h4>
 
@@ -513,7 +513,7 @@
 
                 <ol class="timeline-list">
                     @forelse ($experience as $data)
-                    <li class="timeline-item">
+                    <li class="timeline-item" style="color: white;">
 
                         <h4 class="h4 timeline-item-title">{{$data->title}}</h4>
 
