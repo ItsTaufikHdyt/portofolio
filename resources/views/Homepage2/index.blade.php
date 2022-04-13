@@ -9,7 +9,7 @@
         <div class="sidebar-info">
 
             <figure class="avatar-box">
-                <img src="{{asset('vcard/images/me.png')}}" alt="Taufik Hidayat" width="80">
+                <img src="{{asset('vcard/images/avatarprofil.png')}}" alt="Taufik Hidayat" width="80">
             </figure>
 
             <div class="info-content">
