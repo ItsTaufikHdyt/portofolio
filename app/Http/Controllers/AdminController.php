@@ -24,6 +24,7 @@ use App\Models\skills;
 
 use App\Repositories\Admin\Portfolio\PortfolioRepository;
 use App\Http\Requests\Admin\Portfolio\storePortfolioRequest;
+use App\Http\Requests\Admin\Portfolio\updatePortfolioRequest;
 use App\Models\portfolio;
 use App\Models\portfolio_tags;
 
@@ -284,7 +285,7 @@ class AdminController extends Controller
              return redirect()->route('admin.portfolio');
          }
      }
-     public function updatePortfolio(storePortfolioRequest $request,$id)
+     public function updatePortfolio(updatePortfolioRequest $request,$id)
      {
          try{
              $about = $this->portfolioRepository->updatePortfolio($request,$id);

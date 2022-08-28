@@ -50,7 +50,7 @@
                         </select>
                         @error('type') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Tags</label>
                         <select class="custom-select2 form-control" multiple="multiple" name="tags[]">
                             @forelse ($data_tags as $data)
@@ -59,7 +59,7 @@
                             @endforelse
                         </select>
                         @error('tags') <span class="text-danger">{{ $message }}</span>@enderror
-                    </div>
+                    </div> -->
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
