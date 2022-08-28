@@ -13,12 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //portfolio 1
-// Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index');
+Route::get('/porto2', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index');
 // portfolio 2
 Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index2'])->name('homepage.index');
 Route::post('/sendMail', [App\Http\Controllers\PortfolioController::class, 'sendMail'])->name('homepage.sendMail');
 Route::post('/sendMail2', [App\Http\Controllers\PortfolioController::class, 'sendMail2'])->name('homepage2.sendMail2');
 Route::get('/get-portfolio/{id}', [App\Http\Controllers\PortfolioController::class, 'getPortfolio'])->name('homepage.getPortfolio');
+Route::get('/taufikhdyt', [App\Http\Controllers\PortfolioController::class, 'link'])->name('bio.link');
 
 Auth::routes();
 
@@ -56,4 +57,9 @@ Route::group(['middleware' => ['auth'], "prefix" => "admin/"], function () {
     Route::put('/updatePortfolio/{id}', [App\Http\Controllers\AdminController::class, 'updatePortfolio'])->name('admin.updatePortfolio');
     Route::delete('/destroyImagePortfolio/{id}', [App\Http\Controllers\AdminController::class, 'destroyImagePortfolio'])->name('admin.destroyImagePortfolio');
     Route::delete('/destroyPortfolio/{id}', [App\Http\Controllers\AdminController::class, 'destroyPortfolio'])->name('admin.destroyPortfolio');
+     //===================================LINK=======================================
+     Route::get('/link', [App\Http\Controllers\AdminController::class, 'link'])->name('admin.link');
+     Route::post('/storeLink', [App\Http\Controllers\AdminController::class, 'storeLink'])->name('admin.storeLink');
+     Route::put('/updateLink/{id}', [App\Http\Controllers\AdminController::class, 'updateLink'])->name('admin.updateLink');
+    Route::delete('/destroyLink/{id}', [App\Http\Controllers\AdminController::class, 'destroyLink'])->name('admin.destroyLink');
 });

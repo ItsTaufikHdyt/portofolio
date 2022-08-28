@@ -29,6 +29,11 @@
 						<li><a href="{{Route('admin.portfolio')}}">Portfolio</a></li>
 					</ul>
 				</li>
+				<li>
+					<a href="{{Route('admin.link')}}" class="dropdown-toggle no-arrow">
+						<span class="micon dw dw-house-1"></span><span class="mtext">Link</span>
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>

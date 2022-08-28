@@ -28,13 +28,20 @@ use App\Http\Requests\Admin\Portfolio\updatePortfolioRequest;
 use App\Models\portfolio;
 use App\Models\portfolio_tags;
 
+use App\Repositories\Admin\Link\LinkRepository;
+use App\Http\Requests\Admin\Link\storeLinkRequest;
+use App\Http\Requests\Admin\Link\updateLinkRequest;
+use App\Models\link;
+
+
+
 use RealRashid\SweetAlert\Facades\Alert;
 
 
 class AdminController extends Controller
 {
-    protected $aboutRepository, $educationRepository, 
-    $experienceRepository, $tagsRepository, $skillsRepository, $portfolio;
+    protected $aboutRepository, $educationRepository,
+        $experienceRepository, $tagsRepository, $skillsRepository, $portfolio, $link;
 
     public function __construct(
         AboutRepository $aboutRepository,
@@ -42,7 +49,8 @@ class AdminController extends Controller
         ExperienceRepository $experienceRepository,
         TagsRepository $tagsRepository,
         SkillsRepository $skillsRepository,
-        PortfolioRepository $portfolioRepository
+        PortfolioRepository $portfolioRepository,
+        LinkRepository $linkRepository
     ) {
         $this->middleware('auth');
         $this->aboutRepository = $aboutRepository;
@@ -51,6 +59,7 @@ class AdminController extends Controller
         $this->tagsRepository = $tagsRepository;
         $this->skillsRepository = $skillsRepository;
         $this->portfolioRepository = $portfolioRepository;
+        $this->linkRepository = $linkRepository;
     }
 
     public function index()
@@ -62,38 +71,38 @@ class AdminController extends Controller
     public function about()
     {
         $about = About::all();
-        return view('Admin.About.index',compact('about'));
+        return view('Admin.About.index', compact('about'));
     }
 
     public function storeAbout(storeAboutRequest $request)
     {
-        try{
+        try {
             $about = $this->aboutRepository->storeAbout($request);
             Alert::success('Store About', 'Success');
-            return redirect()->route('admin.about',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.about', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.about');
         }
     }
-    public function updateAbout(storeAboutRequest $request,$id)
+    public function updateAbout(storeAboutRequest $request, $id)
     {
-        try{
-            $about = $this->aboutRepository->updateAbout($request,$id);
+        try {
+            $about = $this->aboutRepository->updateAbout($request, $id);
             Alert::success('Update About', 'Success');
-            return redirect()->route('admin.about',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.about', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.about');
         }
     }
     public function destroyAbout($id)
     {
-        try{
+        try {
             $about = $this->aboutRepository->destroyAbout($id);
             Alert::success('Destroy About', 'Success');
             return redirect()->route('admin.about');
-        }catch(Throwable $e){
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.about');
         }
@@ -102,38 +111,38 @@ class AdminController extends Controller
     public function education()
     {
         $education = education::all();
-        return view('Admin.Education.index',compact('education'));
+        return view('Admin.Education.index', compact('education'));
     }
 
     public function storeEducation(storeEducationRequest $request)
     {
-        try{
+        try {
             $about = $this->educationRepository->storeEducation($request);
             Alert::success('Store Education', 'Success');
-            return redirect()->route('admin.education',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.education', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.education');
         }
     }
-    public function updateEducation(storeEducationRequest $request,$id)
+    public function updateEducation(storeEducationRequest $request, $id)
     {
-        try{
-            $about = $this->educationRepository->updateEducation($request,$id);
+        try {
+            $about = $this->educationRepository->updateEducation($request, $id);
             Alert::success('Update Education', 'Success');
-            return redirect()->route('admin.education',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.education', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.education');
         }
     }
     public function destroyEducation($id)
     {
-        try{
+        try {
             $about = $this->educationRepository->destroyEducation($id);
             Alert::success('Destroy Education', 'Success');
             return redirect()->route('admin.education');
-        }catch(Throwable $e){
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.education');
         }
@@ -143,38 +152,38 @@ class AdminController extends Controller
     public function experience()
     {
         $experience = experience::all();
-        return view('Admin.Experience.index',compact('experience'));
+        return view('Admin.Experience.index', compact('experience'));
     }
 
     public function storeExperience(storeExperienceRequest $request)
     {
-        try{
+        try {
             $about = $this->experienceRepository->storeExperience($request);
             Alert::success('Store Experience', 'Success');
-            return redirect()->route('admin.experience',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.experience', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.experience');
         }
     }
-    public function updateExperience(storeExperienceRequest $request,$id)
+    public function updateExperience(storeExperienceRequest $request, $id)
     {
-        try{
-            $about = $this->experienceRepository->updateExperience($request,$id);
+        try {
+            $about = $this->experienceRepository->updateExperience($request, $id);
             Alert::success('Update Experience', 'Success');
-            return redirect()->route('admin.experience',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.experience', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.experience');
         }
     }
     public function destroyExperience($id)
     {
-        try{
+        try {
             $about = $this->experienceRepository->destroyExperience($id);
             Alert::success('Destroy Experience', 'Success');
             return redirect()->route('admin.experience');
-        }catch(Throwable $e){
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.experience');
         }
@@ -183,38 +192,38 @@ class AdminController extends Controller
     public function tags()
     {
         $tags = tags::paginate(5);
-        return view('Admin.Tags.index',compact('tags'));
+        return view('Admin.Tags.index', compact('tags'));
     }
 
     public function storeTags(storeTagsRequest $request)
     {
-        try{
+        try {
             $about = $this->tagsRepository->storeTags($request);
             Alert::success('Store Tags', 'Success');
-            return redirect()->route('admin.tags',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.tags', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.tags');
         }
     }
-    public function updateTags(storeTagsRequest $request,$id)
+    public function updateTags(storeTagsRequest $request, $id)
     {
-        try{
-            $about = $this->tagsRepository->updateTags($request,$id);
+        try {
+            $about = $this->tagsRepository->updateTags($request, $id);
             Alert::success('Update Tags', 'Success');
-            return redirect()->route('admin.tags',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.tags', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.tags');
         }
     }
     public function destroyTags($id)
     {
-        try{
+        try {
             $about = $this->tagsRepository->destroyTags($id);
             Alert::success('Destroy Tags', 'Success');
             return redirect()->route('admin.tags');
-        }catch(Throwable $e){
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.tags');
         }
@@ -223,99 +232,137 @@ class AdminController extends Controller
     public function skills()
     {
         $skills = skills::paginate(5);
-        return view('Admin.Skills.index',compact('skills'));
+        return view('Admin.Skills.index', compact('skills'));
     }
 
     public function storeSkills(storeSkillsRequest $request)
     {
-        try{
+        try {
             $about = $this->skillsRepository->storeSkills($request);
             Alert::success('Store Skills', 'Success');
-            return redirect()->route('admin.skills',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.skills', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.skills');
         }
     }
-    public function updateSkills(storeSkillsRequest $request,$id)
+    public function updateSkills(storeSkillsRequest $request, $id)
     {
-        try{
-            $about = $this->skillsRepository->updateSkills($request,$id);
+        try {
+            $about = $this->skillsRepository->updateSkills($request, $id);
             Alert::success('Update Skills', 'Success');
-            return redirect()->route('admin.skills',compact('about'));
-        }catch(Throwable $e){
+            return redirect()->route('admin.skills', compact('about'));
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.skills');
         }
     }
     public function destroySkills($id)
     {
-        try{
+        try {
             $about = $this->skillsRepository->destroySkills($id);
             Alert::success('Destroy Skills', 'Success');
             return redirect()->route('admin.skills');
-        }catch(Throwable $e){
+        } catch (Throwable $e) {
             Alert::error('Error', $e);
             return redirect()->route('admin.skills');
         }
     }
-     //================================PORTFOLIO===========================
-     public function portfolio()
-     {
-         $portfolio = portfolio::paginate(5);
-         $data_tags = tags::all();
-         $portfolio_tags = portfolio_tags::all();
-         return view('Admin.Portfolio.index',compact(['portfolio','data_tags','portfolio_tags']));
-     }
+    //================================PORTFOLIO===========================
+    public function portfolio()
+    {
+        $portfolio = portfolio::paginate(5);
+        $data_tags = tags::all();
+        $portfolio_tags = portfolio_tags::all();
+        return view('Admin.Portfolio.index', compact(['portfolio', 'data_tags', 'portfolio_tags']));
+    }
 
-     public function showImagePortfolio($id)
-     {
+    public function showImagePortfolio($id)
+    {
         $portfolio = portfolio::find($id);
-        return view('Admin.Portfolio.show',compact('portfolio'));
-     }
- 
-     public function storePortfolio(storePortfolioRequest $request)
-     {
-         try{
-             $about = $this->portfolioRepository->storePortfolio($request);
-             Alert::success('Store Portfolio', 'Success');
-             return redirect()->route('admin.portfolio',compact('about'));
-         }catch(Throwable $e){
-             Alert::error('Error', $e);
-             return redirect()->route('admin.portfolio');
-         }
-     }
-     public function updatePortfolio(updatePortfolioRequest $request,$id)
-     {
-         try{
-             $about = $this->portfolioRepository->updatePortfolio($request,$id);
-             Alert::success('Update Portfolio', 'Success');
-             return redirect()->route('admin.portfolio',compact('about'));
-         }catch(Throwable $e){
-             Alert::error('Error', $e);
-             return redirect()->route('admin.portfolio');
-         }
-     }
-     public function destroyImagePortfolio($id)
-     {
-         try{
-             $about = $this->portfolioRepository->destroyImagePortfolio($id);
-             Alert::success('Destroy Image Portfolio', 'Success');
-             return redirect()->route('admin.portfolio');
-         }catch(Throwable $e){
-             Alert::error('Error', $e);
-             return redirect()->route('admin.portfolio');
-         }
-     }
-     public function destroyPortfolio($id)
-     {
-         try{
-             $about = $this->portfolioRepository->destroyPortfolio($id);
-             Alert::success('Destroy Portfolio', 'Success');
-             return redirect()->route('admin.portfolio');
-         }catch(Throwable $e){
-             Alert::error('Error', $e);
-             return redirect()->route('admin.portfolio');
-         }
-     }
+        return view('Admin.Portfolio.show', compact('portfolio'));
+    }
+
+    public function storePortfolio(storePortfolioRequest $request)
+    {
+        try {
+            $about = $this->portfolioRepository->storePortfolio($request);
+            Alert::success('Store Portfolio', 'Success');
+            return redirect()->route('admin.portfolio', compact('about'));
+        } catch (Throwable $e) {
+            Alert::error('Error', $e);
+            return redirect()->route('admin.portfolio');
+        }
+    }
+    public function updatePortfolio(updatePortfolioRequest $request, $id)
+    {
+        try {
+            $about = $this->portfolioRepository->updatePortfolio($request, $id);
+            Alert::success('Update Portfolio', 'Success');
+            return redirect()->route('admin.portfolio', compact('about'));
+        } catch (Throwable $e) {
+            Alert::error('Error', $e);
+            return redirect()->route('admin.portfolio');
+        }
+    }
+    public function destroyImagePortfolio($id)
+    {
+        try {
+            $about = $this->portfolioRepository->destroyImagePortfolio($id);
+            Alert::success('Destroy Image Portfolio', 'Success');
+            return redirect()->route('admin.portfolio');
+        } catch (Throwable $e) {
+            Alert::error('Error', $e);
+            return redirect()->route('admin.portfolio');
+        }
+    }
+    public function destroyPortfolio($id)
+    {
+        try {
+            $about = $this->portfolioRepository->destroyPortfolio($id);
+            Alert::success('Destroy Portfolio', 'Success');
+            return redirect()->route('admin.portfolio');
+        } catch (Throwable $e) {
+            Alert::error('Error', $e);
+            return redirect()->route('admin.portfolio');
+        }
+    }
+    public function link()
+    {
+        $link = link::all();
+        return view('Admin.Link.index',compact('link'));
+    }
+    public function storeLink(storeLinkRequest $request)
+    {
+        try {
+            $link = $this->linkRepository->storeLink($request);
+            Alert::success('Store Link', 'Success');
+            return redirect()->route('admin.link');
+        } catch (Throwable $e) {
+            Alert::error('Error', $e);
+            return redirect()->route('admin.link');
+        }
+    }
+    public function updateLink(updateLinkRequest $request,$id)
+    {
+        try {
+            $link = $this->linkRepository->updateLink($request,$id);
+            Alert::success('Update Link', 'Success');
+            return redirect()->route('admin.link');
+        } catch (Throwable $e) {
+            Alert::error('Error', $e);
+            return redirect()->route('admin.link');
+        }
+    }
+    public function destroyLink($id)
+    {
+        try {
+            $link = $this->linkRepository->destroyLink($id);
+            Alert::success('Destroy Link', 'Success');
+            return redirect()->route('admin.link');
+        } catch (Throwable $e) {
+            Alert::error('Error', $e);
+            return redirect()->route('admin.link');
+        }
+    }
 }

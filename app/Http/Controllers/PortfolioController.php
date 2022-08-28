@@ -8,6 +8,7 @@ use App\Models\skills;
 use App\Models\education;
 use App\Models\experience;
 use App\Models\portfolio;
+use App\Models\link;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -133,7 +134,7 @@ class PortfolioController extends Controller
             $mail->addAddress('taufikhdyt2332@gmail.com', 'Taufik Hidayat');
             // Siapa yang mengirim email
             // $mail->setFrom($emailAddress, $name);
-            
+
             // Siapa yang akan menerima email
             // $mail->addAddress('me@taufikhdyt.com', 'Taufik Hidayat');     // Add a recipient
             // $mail->addAddress('ellen@example.com');               // Name is optional
@@ -164,5 +165,11 @@ class PortfolioController extends Controller
             echo 'Mailer Error: ' . $mail->ErrorInfo;
             return redirect()->route('homepage2.index2');
         }
+    }
+
+    public function link()
+    {
+        $link = link::all();
+        return view('Link.index',compact('link'));
     }
 }

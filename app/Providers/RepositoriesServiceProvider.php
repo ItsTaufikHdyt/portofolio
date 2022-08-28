@@ -21,6 +21,9 @@ use App\Repositories\Admin\Core\Skills\SkillsRepositoryInterface;
 use App\Repositories\Admin\Portfolio\PortfolioRepository;
 use App\Repositories\Admin\Core\Portfolio\PortfolioRepositoryInterface;
 
+use App\Repositories\Admin\Link\LinkRepository;
+use App\Repositories\Admin\Core\Link\LinkRepositoryInterface;
+
 
 use Illuminate\Support\ServiceProvider;
 
@@ -56,6 +59,8 @@ class RepositoriesServiceProvider extends ServiceProvider
             SkillsRepository::class,
             PortfolioRepositoryInterface::class,
             PortfolioRepository::class,
+            LinkRepositoryInterface::class,
+            LinkRepository::class,
         );
     }
 }

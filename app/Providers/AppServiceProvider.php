@@ -28,5 +28,6 @@ class AppServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../views','admin');
         $this->loadViewsFrom(__DIR__.'/../views','portfolio');
         $this->loadViewsFrom(__DIR__.'/../views','vcard');
+        $this->loadViewsFrom(__DIR__.'/../views','link');
     }
 }
