@@ -8,8 +8,7 @@
             <i class="fas fa-map-marker-alt"></i> Bontang, Indonesia
         </div>
         <div class="bio">
-            <div>💻 Sharing my developer journey & love of tech</div>
-            <div>Tech Enthusiast & Content Creator</div>
+            <div>💻 Tech Enthusiast & Content Creator</div>
         </div>
     </div>
     <div class="links">

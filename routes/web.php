@@ -19,7 +19,7 @@ Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index2'])->na
 Route::post('/sendMail', [App\Http\Controllers\PortfolioController::class, 'sendMail'])->name('homepage.sendMail');
 Route::post('/sendMail2', [App\Http\Controllers\PortfolioController::class, 'sendMail2'])->name('homepage2.sendMail2');
 Route::get('/get-portfolio/{id}', [App\Http\Controllers\PortfolioController::class, 'getPortfolio'])->name('homepage.getPortfolio');
-Route::get('/taufikhdyt', [App\Http\Controllers\PortfolioController::class, 'link'])->name('bio.link');
+Route::get('/me', [App\Http\Controllers\PortfolioController::class, 'link'])->name('bio.link');
 
 Auth::routes();
 

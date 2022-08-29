@@ -4,6 +4,7 @@ namespace App\Repositories\Admin\Link;
 
 use App\Repositories\Admin\Core\Link\LinkRepositoryInterface;
 use App\Models\link;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class LinkRepository implements LinkRepositoryInterface
@@ -22,7 +23,11 @@ class LinkRepository implements LinkRepositoryInterface
         $filename = date('YmdHi') . $request->file('icon')->getClientOriginalName();
         $request->file('icon')->storeAs('public/icon', $filename);
 
+        $query = DB::table('link')->max('id');
+        $no = $query+1;
+
         $link = new Link();
+        $link->id = $no;
         $link->type = $request->type;
         $link->title = $request->title;
         $link->subtitle = $request->subtitle;

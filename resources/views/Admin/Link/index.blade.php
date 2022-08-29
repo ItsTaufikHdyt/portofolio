@@ -25,6 +25,7 @@ Links
 </div>
 @endif
 <button data-toggle="modal" data-target="#createLinkModal" type="button" class="btn btn-success">Create</button>
+<br><br>
 <div class="table-responsive">
     <table class="table table-striped">
         <thead>

@@ -29,6 +29,10 @@
                             <option value="paypal">paypal</option>
                             <option value="twitter">twitter</option>
                             <option value="youtube">youtube</option>
+                            <option value="website">website</option>
+                            <option value="trakteer">trakteer</option>
+                            <option value="saweria">saweria</option>
+                            <option value="bmc">Buy Me A Coffee</option>
                         </select>
                         @error('type') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
