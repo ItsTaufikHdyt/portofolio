@@ -7,7 +7,7 @@
   <!--
     - favicon
   -->
-  <link rel="shortcut icon" href="{{asset('vcard/images/logo.ico')}}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{asset('vcard/images/avatarprofil.png')}}" type="image/x-icon">
 
   <!--
     - custom css link

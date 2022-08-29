@@ -257,7 +257,7 @@
 
             <!--- testimonials-->
 
-            <section class="testimonials">
+            <!-- <section class="testimonials">
 
                 <h3 class="h3 testimonials-title">Testimonials</h3>
 
@@ -353,7 +353,7 @@
 
                 </ul>
 
-            </section>
+            </section> -->
 
 
             <!--- testimonials modal-->

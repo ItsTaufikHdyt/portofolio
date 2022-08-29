@@ -21,7 +21,7 @@
 @forelse ($link as $data)
 <a href="{{$data->url}}" class="block link">
     <div class="image-float {{$data->type}}">
-        <div class="beacon instagram"></div>
+        <div class="beacon {{$data->type}}"></div>
         <div class="image">
             <img src="{{asset('storage/icon/' .$data->icon)}}" />
         </div>
