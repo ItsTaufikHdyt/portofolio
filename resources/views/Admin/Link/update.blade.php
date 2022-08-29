@@ -30,6 +30,10 @@
                             <option value="paypal" {{$data->level == 'paypal' ? 'selected' : ''}}>paypal</option>
                             <option value="twitter" {{$data->level == 'twitter' ? 'selected' : ''}}>twitter</option>
                             <option value="youtube" {{$data->level == 'youtube' ? 'selected' : ''}}>youtube</option>
+                            <option value="website" {{$data->level == 'website' ? 'selected' : ''}}>website</option>
+                            <option value="trakteer" {{$data->level == 'trakteer' ? 'selected' : ''}}>trakteer</option>
+                            <option value="saweria" {{$data->level == 'saweria' ? 'selected' : ''}}>saweria</option>
+                            <option value="bmc" {{$data->level == 'bmc' ? 'selected' : ''}}>Buy Me A Coffee</option>
                         </select>
                         @error('type') <span class="text-danger">{{ $message }}</span>@enderror
                     </div>
