@@ -55,7 +55,7 @@
                     <div class="contact-info">
                         <p class="contact-title">Phone</p>
 
-                        <a href="tel:+6285256637373" class="contact-link">{{$about->phone}}</a>
+                        <a href="tel:+6285156637373" class="contact-link">{{$about->phone}}</a>
                     </div>
 
                 </li>
