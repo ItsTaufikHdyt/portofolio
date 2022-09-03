@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //portfolio 1
-Route::get('/porto2', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index');
+Route::get('/porto2', [App\Http\Controllers\PortfolioController::class, 'index'])->name('homepage.index2');
 // portfolio 2
 Route::get('/', [App\Http\Controllers\PortfolioController::class, 'index2'])->name('homepage.index');
 Route::post('/sendMail', [App\Http\Controllers\PortfolioController::class, 'sendMail'])->name('homepage.sendMail');
